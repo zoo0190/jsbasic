@@ -1,6 +1,7 @@
 {
   "name": "jsbasic",
   "version": "1.0.0",
+  "type": "module",
   "description": "js 기본기",
   "main": "index.js",
   "scripts": {
