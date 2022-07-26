@@ -49,13 +49,15 @@
         // 5. caller
 
         $btn1.addEventListener('click', function (event) {
+          console.log(this);
           //   $span1.innerText = WEEKS[weekControl('국어')];
-          $span1.innerText = WEEKS[findWeek($span1.innerText)];
+          // $span1.innerText = WEEKS[findWeek($span1.innerText)];
         });
 
         $btn2.addEventListener('click', event => {
+          console.log(this);
           //   $span2.innerText = WEEKS[weekControl('수학')];
-          $span2.innerText = WEEKS[findWeek($span2.innerText)];
+          // $span2.innerText = WEEKS[findWeek($span2.innerText)];
         });
       });
     </script>
