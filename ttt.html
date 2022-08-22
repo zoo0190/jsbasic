@@ -21,6 +21,26 @@
       // 한번 만 불러라
       // 방법은 여러가지 있다... 다 찾아라...
       // DOM 제어 하는거.., DOM 제어 안하는거...
+
+      class Hi {
+        constructor() {
+          this.date = new Date();
+        }
+      }
+
+      const arr = [];
+
+      for (let i = 0; i < 100; i++) {
+        arr.push(new Hi());
+      }
+
+      // console.log(arr);
+
+      const kk = new Map(arr.map(item => [item, item]));
+      const aa = new WeakMap(arr.map(item => [item, item]));
+
+      arr.size = 0;
+
       import { WEEKS, increaseOne } from './pureFn.js';
 
       const getIdx = window.addEventListener('load', () => {

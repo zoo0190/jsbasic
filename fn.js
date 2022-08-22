@@ -172,8 +172,3 @@ console.log(
 // }
 
 // console.log(fibo(50));
-
-// const deepEqual = obj => {
-
-//   return true
-// };

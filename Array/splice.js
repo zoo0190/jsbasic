@@ -8,6 +8,13 @@ const splice = (arr, start = 0, deleteCount = arr.length - 1, ...rest) => {
   return newArr;
 };
 
+const spliceAnswer = (
+  arr,
+  start = 0,
+  deleteCount = arr.length - 1,
+  ...rest
+) => [...arr.slice(0, start), ...rest, ...arr.slice(start + deleteCount)];
+
 const a1 = splice(arr, 1, 3);
 console.log(a1); // a1 = [1, 5]
 const a2 = splice(a1, 1, 0, 2, 3, 4);

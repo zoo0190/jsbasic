@@ -1,12 +1,11 @@
 // 객체 리터럴 this
 const circle = {
   name: 'Yong',
-  getDiameter() {
+  getName() {
     return this.name;
   },
 };
-
-// console.log(circle.getDiameter());
+// console.log(circle.getName());
 
 // 메서드 안에서 this 호출
 // 콜백으로 this 호출
@@ -28,7 +27,8 @@ const obj = {
     // }, 100);
   },
 };
-obj.foo();
+
+// obj.foo();
 
 // Arrow 펑션일 때 this
 const obj2 = {
@@ -56,17 +56,17 @@ const obj2 = {
 
 // obj2.foo2();
 
-const testObj = {
-  name: 'Yong',
-};
+// const testObj = {
+//   name: 'Yong',
+// };
 
-const thisTest = function (a, b, c, d) {
-  return `my name is ${this.name}`;
-};
+// const thisTest = function (a, b, c, d) {
+//   return `my name is ${this.name}`;
+// };
 
-// thisTest();
-// console.log(thisTest.call(testObj, 1, 2, 3));
-// console.log(thisTest.apply(testObj, [1, 2, 3]));
-const bindFn = thisTest.bind(testObj);
-console.log(bindFn());
-// console.log(bindFn);
+// // thisTest();
+// // console.log(thisTest.call(testObj, 1, 2, 3));
+// // console.log(thisTest.apply(testObj, [1, 2, 3]));
+// const bindFn = thisTest.bind(testObj);
+// console.log(bindFn());
+// // console.log(bindFn);
