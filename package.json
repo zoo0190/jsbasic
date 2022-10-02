@@ -25,6 +25,10 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "mysql2": "^2.3.3"
+    "co": "^4.6.0",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.37",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.10"
   }
 }

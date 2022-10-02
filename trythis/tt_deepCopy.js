@@ -1,16 +1,4 @@
-const deepCopy = reference => {
-  const newRef = Array.isArray(reference) ? [] : {};
-
-  for (let i in reference) {
-    const tmp = reference[i];
-    if (typeof tmp === 'object') {
-      newRef[i] = deepCopy(tmp);
-    } else {
-      newRef[i] = tmp;
-    }
-  }
-  return newRef;
-};
+import { deepCopy } from '../utils/utils.js';
 
 const kim = {
   nid: 3,

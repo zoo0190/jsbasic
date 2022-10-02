@@ -16,6 +16,9 @@
       <button id="btn2">수학 수업 요일선택 ></button>
       <span id="btn2-span">요일을 선택하세요!</span>
     </div>
+    <div>
+      <input id="input1" placeholder="search..." />
+    </div>
 
     <script type="module">
       // 한번 만 불러라
@@ -42,6 +45,7 @@
       arr.size = 0;
 
       import { WEEKS, increaseOne } from './pureFn.js';
+      import { debounce, throttle } from './debounceThrottle.js';
 
       const getIdx = window.addEventListener('load', () => {
         const $btn1 = document.getElementById('btn1');
@@ -49,6 +53,8 @@
 
         const $span1 = document.getElementById('btn1-span');
         const $span2 = document.getElementById('btn2-span');
+
+        const $input1 = document.getElementById('input1');
 
         // 방법 2
         const weekControl = increaseOne();
@@ -67,18 +73,31 @@
         // 3. 현재 값을 전달
         // 4. Object 관리
         // 5. caller
+        const debounceAct = debounce(() => {
+          $span1.innerText = WEEKS[findWeek($span1.innerText)];
+        }, 1000);
 
-        $btn1.addEventListener('click', function (event) {
-          console.log(this);
-          //   $span1.innerText = WEEKS[weekControl('국어')];
-          // $span1.innerText = WEEKS[findWeek($span1.innerText)];
-        });
+        const throttleAct = throttle(() => {
+          $span2.innerText = WEEKS[findWeek($span2.innerText)];
+        }, 1000);
 
-        $btn2.addEventListener('click', event => {
-          console.log(this);
-          //   $span2.innerText = WEEKS[weekControl('수학')];
-          // $span2.innerText = WEEKS[findWeek($span2.innerText)];
-        });
+        const debounceInput = debounce(e => {
+          console.log(new Date().toISOString(), 'search>>', e.target.value);
+        }, 500);
+
+        // $btn1.addEventListener('click', event => {
+        //   //   $span2.innerText = WEEKS[weekControl('수학')];
+        //   $span1.innerText = WEEKS[findWeek($span1.innerText)];
+        // });
+        $btn1.addEventListener('click', debounceAct);
+
+        // $btn2.addEventListener('click', event => {
+        //   //   $span2.innerText = WEEKS[weekControl('수학')];
+        //   $span2.innerText = WEEKS[findWeek($span2.innerText)];
+        // });
+        $btn2.addEventListener('click', throttleAct);
+
+        $input1.addEventListener('keyup', debounceInput);
       });
     </script>
   </body>

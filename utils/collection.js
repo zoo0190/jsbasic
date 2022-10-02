@@ -1,4 +1,4 @@
-export default class Collection {
+class Collection {
   #arr;
   constructor(arr = []) {
     this.#arr = arr;
@@ -45,3 +45,27 @@ export default class Collection {
     console.log(this.#arr);
   }
 }
+
+class Stack extends Collection {
+  print() {
+    super.print(arr => {
+      console.log(arr.join('\n'));
+    });
+  }
+}
+
+class Queue extends Collection {
+  enqueue(val) {
+    super.push(val);
+  }
+
+  dequeue() {
+    return super.shift();
+  }
+
+  print() {
+    super.print(arr => console.log('->', arr.join(', '), '->'));
+  }
+}
+
+export { Stack, Queue };
