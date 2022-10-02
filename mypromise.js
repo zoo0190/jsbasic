@@ -5,7 +5,7 @@ const randTime = val => {
     const random = Math.random() * 3000;
     setTimeout(() => {
       res(val);
-    }, 2000);
+    }, random);
   });
 };
 
