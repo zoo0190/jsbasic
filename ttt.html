@@ -39,13 +39,13 @@
 
       // console.log(arr);
 
-      const kk = new Map(arr.map(item => [item, item]));
-      const aa = new WeakMap(arr.map(item => [item, item]));
+      const kk = new Map(arr.map((item) => [item, item]));
+      const aa = new WeakMap(arr.map((item) => [item, item]));
 
       arr.size = 0;
 
       import { WEEKS, increaseOne } from './pureFn.js';
-      import { debounce, throttle } from './debounceThrottle.js';
+      import { debounce, throttle } from './utils/timer-utils.js';
 
       const getIdx = window.addEventListener('load', () => {
         const $btn1 = document.getElementById('btn1');
@@ -60,7 +60,7 @@
         const weekControl = increaseOne();
 
         // 방법 1
-        const findWeek = spanText => {
+        const findWeek = (spanText) => {
           const indexNum = WEEKS.indexOf(spanText);
           if (indexNum === -1 || indexNum === 6) {
             return 0;
@@ -81,7 +81,7 @@
           $span2.innerText = WEEKS[findWeek($span2.innerText)];
         }, 1000);
 
-        const debounceInput = debounce(e => {
+        const debounceInput = debounce((e) => {
           console.log(new Date().toISOString(), 'search>>', e.target.value);
         }, 500);
 
