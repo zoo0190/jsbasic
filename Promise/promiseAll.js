@@ -1,6 +1,5 @@
-export const randTime = val => {
+export const randTime = (val) => {
   return new Promise((res, rej) => {
-    const random = Math.random() * 3000;
     setTimeout(() => {
       res(val);
     }, 2000);
@@ -22,28 +21,28 @@ export const randTime = val => {
 //   console.log(result);
 // }
 
-const promiseAll = arr => {
+const promiseAll = (arr) => {
   return new Promise((resolve, reject) => {
     const newArr = [];
     let count = arr.length;
 
     arr.forEach((item, i) => {
       item
-        .then(val => {
+        .then((val) => {
           newArr[i] = val;
           count -= 1;
           if (!count) {
             resolve(newArr);
           }
         })
-        .catch(err => {
+        .catch((err) => {
           reject(err);
         });
     });
   });
 };
 
-const asyncPromiseAll = async arr => {
+const asyncPromiseAll = async (arr) => {
   const newArr = [];
   for (let co of arr) {
     newArr.push(await co);
@@ -53,7 +52,7 @@ const asyncPromiseAll = async arr => {
 
 // console.log(asyncPromiseAll([randTime(1), randTime(2), randTime(3)]));
 
-// asyncPromiseAll([randTime(1), randTime(2), randTime(3)]).then(arr => {
+// asyncPromiseAll([randTime(1), randTime(2), randTime(3)]).then((arr) => {
 //   console.table(arr);
 //   // assertArray(arr, vals);
 // });

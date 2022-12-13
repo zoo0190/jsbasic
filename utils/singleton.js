@@ -1,5 +1,3 @@
-// 참고자료: https://docs.google.com/presentation/d/1cD6-3e1cJSE8WNoEYTFllCtfmnAIYRjw9eGTI5z-tLY/edit#slide=id.g1479088a913_0_6
-
 class Singleton {
   static #_instance;
   #name;
